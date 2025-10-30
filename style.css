@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #222;
+}
+
+header {
+  background-color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-family: 'NeverMindBauhaus-Heavy', sans-serif;
+  font-size: 28px;
+}
+.logo .black { color: black; }
+.logo .green { color: #00b140; }
+
+nav a {
+  text-decoration: none;
+  color: #222;
+  margin-left: 20px;
+  font-weight: bold;
+}
+nav a:hover {
+  color: #00b140;
+}
+
+.hero {
+  text-align: center;
+  margin-top: 100px;
+  padding: 40px;
+}
+
+button {
+  background-color: #00b140;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover {
+  background-color: #009435;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  margin-top: 60px;
+}

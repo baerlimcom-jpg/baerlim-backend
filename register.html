@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrierung – baerlim.com</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo"><span class="black">baerlim</span><span class="green">.com</span></h1>
+  </header>
+
+  <main class="auth-container">
+    <h2>Registrieren</h2>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Benutzername" required>
+      <input type="email" id="email" placeholder="E-Mail" required>
+      <input type="password" id="password" placeholder="Passwort" required>
+      <input type="password" id="repeat" placeholder="Passwort wiederholen" required>
+
+      <label><input type="checkbox" required> AGB & Datenschutz akzeptieren</label>
+      <button type="submit">Registrieren</button>
+    </form>
+    <p id="message"></p>
+    <p>Schon registriert? <a href="login.html">Zum Login</a></p>
+  </main>
+
+  <script src="js/register.js"></script>
+</body>
+</html>
