@@ -17,12 +17,24 @@
     <form id="registerForm">
       <input type="text" id="username" placeholder="Benutzername" required>
       <input type="email" id="email" placeholder="E-Mail" required>
-      <input type="password" id="password" placeholder="Passwort" required>
-      <input type="password" id="repeat" placeholder="Passwort wiederholen" required>
+
+      <!-- Passwortfeld + Stärke-Balken -->
+      <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Passwort" required>
+        <span class="toggle-eye">👁️</span>
+      </div>
+      <div id="strength-bar"><div id="bar"></div></div>
+
+      <!-- Passwort wiederholen -->
+      <div class="password-wrapper">
+        <input type="password" id="repeat" placeholder="Passwort wiederholen" required>
+        <span class="toggle-eye">👁️</span>
+      </div>
 
       <label><input type="checkbox" required> AGB & Datenschutz akzeptieren</label>
       <button type="submit">Registrieren</button>
     </form>
+
     <p id="message"></p>
     <p>Schon registriert? <a href="login.html">Zum Login</a></p>
   </main>

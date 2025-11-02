@@ -39,3 +39,40 @@
   margin-top: 10px;
   text-align: center;
 }
+/* Passwort-Stärkebalken */
+#strength-bar {
+  width: 100%;
+  height: 6px;
+  background-color: #ddd;
+  border-radius: 3px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#strength-bar #bar {
+  height: 100%;
+  width: 0%;
+  background-color: red;
+  border-radius: 3px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* Passwortfeld mit Auge */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 35px;
+}
+
+.password-wrapper .toggle-eye {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  cursor: pointer;
+  user-select: none;
+}
