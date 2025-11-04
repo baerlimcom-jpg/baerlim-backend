@@ -1,7 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import cors from "cors";
+app.use(cors({
+  origin: ["https://baerlim.com", "http://localhost:5500"], // beide erlaubt
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 import authRoutes from "./authRoutes.js";
 
 dotenv.config();
