@@ -19,7 +19,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     // Anfrage ans Backend
-    const res = await fetch("https://baerlim-backend.onrender.com/api/auth/register", {
+    const res = await fetch("https://baerlim-backend.onrender.com/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password: pass }),
