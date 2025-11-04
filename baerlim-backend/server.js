@@ -4,20 +4,23 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRoutes from "./authRoutes.js";
 
-dotenv.config(); // MUSS ganz oben vor allem anderen stehen!
+dotenv.config();
 
 const app = express();
 
+// 🟢 CORS aktivieren – erlaubt Anfragen von deiner Seite und lokalem Test
 app.use(cors({
   origin: [
-    "http://localhost:5500",
-    "https://baerlim.com",
-    "https://www.baerlim.com"
+    "http://localhost:5500",        // für lokalen Test
+    "https://baerlim.com",          // deine Hauptdomain
+    "https://www.baerlim.com",      // falls mit www aufgerufen wird
+    "https://baerlim-backend-de.onrender.com" // erlaubt direkte Backend-Zugriffe
   ],
   methods: ["GET", "POST"],
   credentials: true,
 }));
 
+// 🟢 JSON Body Parser
 app.use(express.json());
 
 // 🟢 MongoDB-Verbindung
@@ -28,7 +31,7 @@ mongoose.connect(process.env.MONGO_URI)
 // 🟢 Routes
 app.use("/api/auth", authRoutes);
 
-// 🟢 Testroute
+// 🟢 Health Check Route
 app.get("/", (req, res) => {
   res.send("🚀 Baerlim Backend läuft erfolgreich!");
 });
