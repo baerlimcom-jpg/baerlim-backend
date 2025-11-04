@@ -1,3 +1,7 @@
+// ==========================
+// 🟢 Baerlim Backend Server
+// ==========================
+
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -8,30 +12,36 @@ dotenv.config();
 
 const app = express();
 
-// 🟢 CORS aktivieren – erlaubt Anfragen von deiner Seite und lokalem Test
-app.use(cors({
-  origin: [
-    "http://localhost:5500",        // für lokalen Test
-    "https://baerlim.com",          // deine Hauptdomain
-    "https://www.baerlim.com",      // falls mit www aufgerufen wird
-    "https://baerlim-backend-de.onrender.com" // erlaubt direkte Backend-Zugriffe
-  ],
-  methods: ["GET", "POST"],
-  credentials: true,
-}));
+// 🟢 CORS aktivieren – erlaubt Anfragen von deiner Domain & lokalem Test
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5500",     // für lokalen Test (z. B. Live Server)
+      "https://baerlim.com",       // Hauptdomain
+      "https://www.baerlim.com"    // falls jemand mit www aufruft
+    ],
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 
 // 🟢 JSON Body Parser
 app.use(express.json());
 
-// 🟢 MongoDB-Verbindung
-mongoose.connect(process.env.MONGO_URI)
+// 🟢 MongoDB Verbindung
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 10000, // Timeout erhöhen
+  })
   .then(() => console.log("✅ MongoDB verbunden"))
   .catch((err) => console.error("❌ MongoDB Fehler:", err.message));
 
-// 🟢 Routes
+// 🟢 Auth Routes
 app.use("/api/auth", authRoutes);
 
-// 🟢 Health Check Route
+// 🟢 Health Check (damit Render sieht, dass Server läuft)
 app.get("/", (req, res) => {
   res.send("🚀 Baerlim Backend läuft erfolgreich!");
 });
